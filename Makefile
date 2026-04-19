@@ -1,14 +1,17 @@
-add.o: 
-	gcc add.c -o add.o
+prog: mult_div.o sub.o add.o main.o
+	gcc mult_div.o sub.o add.o main.o -o prog
 
-sub.o: 
-	gcc sub.c -o sub.o
+add.o: add.c
+	gcc -c add.c -o add.o
 
-mult_div.o:
-	gcc mult_div.c -o mult_div.o
+sub.o: sub.c
+	gcc -c sub.c -o sub.o
 
-main.o:
-	gcc mult_div.o sub.o add.o main.c -o main.o
+mult_div.o: mult_div.c
+	gcc -c mult_div.c -o mult_div.o
 
-output:
-	gcc main.o -o try
+main.o: main.c
+	gcc -c main.c -o main.o
+
+clean:
+	rm -f *.o prog

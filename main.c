@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 #include "add.h"
 #include "sub.h"
 #include "mult_div.h"
@@ -15,22 +16,27 @@ int main() {
 		switch(operation) {
 			case '+':
 				add(a, b);
+				printf("\n");
 				flag = false;
 				break;
 			case '-':
 				sub(a, b);
+				printf("\n");
 				flag = false;
 				break;
 			case '*':
 				mult(a, b);
+				printf("\n");
 				flag = false;
 				break;
 			case '/':
-				div(a, b);
+				divi(a, b);
+				printf("\n");
 				flag = false;
 				break;
 			default:
 				printf("Enter valid input\n");
+				exit(1);
 		}
 
 	}
